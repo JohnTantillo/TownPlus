@@ -12,3 +12,4 @@ while running:
     data = data.rstrip()
     stringData = str(data)
     print(stringData)
+#TODO: only send when there is a consistent change
