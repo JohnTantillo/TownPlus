@@ -81,7 +81,7 @@ def toScala():
     posts = db.dist
     data = posts.find().sort([("time",1)]).limit(1)
     print(data)
-    if float(data["dist"]) != -1:
+    if float(data[0]["dist"]) != -1:
         return json.dumps(True)
     else:
         return json.dumps(False)
