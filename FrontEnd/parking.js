@@ -15,14 +15,15 @@ function ajaxGetRequest(path, callback) {
 }
 
 function myFunction(array) {
-  console.log(array);
+  var a = JSON.parse (array)["lot"];
+  console.log(a);
   var table = document.getElementById("myTable");
-  for (var i = 0; i < array.length; i++){
-    console.log(array.length);
+  for (var i = 0; i < a.length; i++){
+    console.log(a.length);
     var row = table.insertRow(i);
-    for (var j = 0; j <array[i].length; j++){
+    for (var j = 0; j <a[i].length; j++){
       var cell1 = row.insertCell(j);
-      if (array[i][j] == "1"){
+      if (a[i][j] == "1"){
         console.log("run");
          cell1.innerHTML = '<img src="car.jpg" width="120" height="234">';
       }
