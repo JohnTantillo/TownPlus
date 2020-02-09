@@ -11,7 +11,7 @@ def home():
 @bottle.post("/sensorData")
 def sensor():
     print("adding new server data")
-    dist = request.forms.get('dist')
+    dist = bottle.request.forms.get('dist')
     curDist = curDist.append(float(dist))
 
 @bottle.route("/scala")
