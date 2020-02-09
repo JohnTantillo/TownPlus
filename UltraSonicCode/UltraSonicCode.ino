@@ -2,21 +2,21 @@
  * HC-SR04 Demo
  * Demonstration of the HC-SR04 Ultrasonic Sensor
  * Date: August 3, 2016
- * 
+ *
  * Description:
  *  Connect the ultrasonic sensor to the Arduino as per the
  *  hardware connections below. Run the sketch and open a serial
  *  monitor. The distance read from the sensor will be displayed
  *  in centimeters and inches.
- * 
+ *
  * Hardware Connections:
- *  Arduino | HC-SR04 
+ *  Arduino | HC-SR04
  *  -------------------
- *    5V    |   VCC     
- *    7     |   Trig     
- *    8     |   Echo     
+ *    5V    |   VCC
+ *    7     |   Trig
+ *    8     |   Echo
  *    GND   |   GND
- *  
+ *
  * License:
  *  Public Domain
  */
@@ -26,7 +26,8 @@ const int TRIG_PIN = 7;
 const int ECHO_PIN = 8;
 
 // Anything over 400 cm (23200 us pulse) is "out of range"
-const unsigned int MAX_DIST = 23200;
+//Now set to over 3ft is "out of range"
+const unsigned int MAX_DIST = 5304;
 
 void setup() {
 
@@ -62,7 +63,7 @@ void loop() {
   pulse_width = t2 - t1;
 
   // Calculate distance in centimeters and inches. The constants
-  // are found in the datasheet, and calculated from the assumed speed 
+  // are found in the datasheet, and calculated from the assumed speed
   //of sound in air at sea level (~340 m/s).
   cm = pulse_width / 58.0;
   inches = pulse_width / 148.0;
@@ -72,11 +73,9 @@ void loop() {
     Serial.println("Out of range");
   } else {
     Serial.print(cm);
-    Serial.print(" cm \t");
-    Serial.print(inches);
-    Serial.println(" in");
+    Serial.print(" cm");
   }
-  
+
   // Wait at least 60ms before next measurement
   delay(60);
 }
