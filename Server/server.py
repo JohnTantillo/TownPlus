@@ -8,8 +8,52 @@ import sqlite3
 
 @bottle.route("/")
 def home():
-    return bottle.static_file("htmlFiles\\home.html", root="C:\\Users\\J_Dun\\Documents\\GitHub\\TownPlus")
+    return bottle.static_file("home.html", root="C:\\Users\\J_Dun\\Documents\\GitHub\\TownPlus\\FrontEnd")
 
+@bottle.route("/parking.js")
+def parkingjs():
+    return bottle.static_file("parking.js", root="C:\\Users\\J_Dun\\Documents\\GitHub\\TownPlus\\FrontEnd")
+
+@bottle.route("/parking.css")
+def parkingcss():
+    return bottle.static_file("parking.css", root="C:\\Users\\J_Dun\\Documents\\GitHub\\TownPlus\\FrontEnd")
+
+@bottle.route("/logo.png")
+def logo():
+    return bottle.static_file("logo.png", root="C:\\Users\\J_Dun\\Documents\\GitHub\\TownPlus\\FrontEnd")
+
+@bottle.route("/empty.png")
+def empty():
+    return bottle.static_file("empty.png", root="C:\\Users\\J_Dun\\Documents\\GitHub\\TownPlus\\FrontEnd")
+
+@bottle.route("/map.css")
+def parkingcss():
+    return bottle.static_file("map.css", root="C:\\Users\\J_Dun\\Documents\\GitHub\\TownPlus\\FrontEnd")
+
+@bottle.route("/homeStyle.css")
+def parkingcss():
+    return bottle.static_file("homeStyle.css", root="C:\\Users\\J_Dun\\Documents\\GitHub\\TownPlus\\FrontEnd")
+
+@bottle.route("/map.html")
+def parkingcss():
+    return bottle.static_file("map.html", root="C:\\Users\\J_Dun\\Documents\\GitHub\\TownPlus\\FrontEnd")
+
+@bottle.route("/maps.png")
+def parkingcss():
+    return bottle.static_file("maps.png", root="C:\\Users\\J_Dun\\Documents\\GitHub\\TownPlus\\FrontEnd")
+
+@bottle.route("/park.png")
+def parkingcss():
+    return bottle.static_file("park.png", root="C:\\Users\\J_Dun\\Documents\\GitHub\\TownPlus\\FrontEnd")
+
+@bottle.route("/parking.html")
+def parkingcss():
+    return bottle.static_file("parking.html", root="C:\\Users\\J_Dun\\Documents\\GitHub\\TownPlus\\FrontEnd")
+
+#################################################################################################################
+@bottle.route("/parking.css")
+def parkingcss():
+    return bottle.static_file("parking.css", root="C:\\Users\\J_Dun\\Documents\\GitHub\\TownPlus\\FrontEnd")
 
 @bottle.post("/sensorData")
 def sensor():
