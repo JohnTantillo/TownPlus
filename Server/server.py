@@ -31,6 +31,7 @@ def toScala():
     db = client.Distances
     posts = db.dist
     data = posts.find().sort({"dist":-1})
+    print(data)
     if float(data[0]) <= 100:
         return json.dumps(True)
     else:
