@@ -4,6 +4,7 @@ import pymongo
 from pymongo import MongoClient
 import json
 import sqlite3
+import time
 
 
 @bottle.route("/")
@@ -69,7 +70,7 @@ def sensor():
     db = client.Distances
     posts = db.dist
     dist = bottle.request.forms.get('dist')
-    posts.insert_one({"dist":float(dist)})
+    posts.insert_one({"dist":float(dist), "time": time.time()})
     client.close()
 
 
@@ -78,7 +79,7 @@ def toScala():
     #client = pymongo.MongoClient("mongodb+srv://dbUser:100741Vcs@cluster0-cxegb.mongodb.net/test?retryWrites=true&w=majority")
     db = client.Distances
     posts = db.dist
-    data = posts.find().sort({"_id":1})
+    data = posts.find().sort({"time":1}).limit(1)
     print(data)
     if float(data["dist"]) != -1:
         return json.dumps(True)
