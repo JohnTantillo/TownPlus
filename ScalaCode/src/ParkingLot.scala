@@ -14,6 +14,7 @@ class ParkingLot( var rows: Int, var columns: Int ) {
   def update(): Unit = {
     filledSpots = 0
     for(spot <- spots){
+      spot.checkFilled()
       if(spot.filled){
         lot(spot.ID._1)(spot.ID._2) = "*"
         filledSpots += 1
