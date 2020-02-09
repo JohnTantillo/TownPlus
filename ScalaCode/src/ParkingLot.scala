@@ -1,4 +1,7 @@
 import scala.collection.mutable.ArrayBuffer
+import scalaj.http._
+import play.api.libs.json.JsValue
+import play.api.libs.json.Json
 
 class ParkingLot( var rows: Int, var columns: Int ) {
 
@@ -22,7 +25,9 @@ class ParkingLot( var rows: Int, var columns: Int ) {
       else
         lot(spot.ID._1)(spot.ID._2) = " "
     }
-
+    val blob: JsValue = Json.toJson(lot)
+    val other: String = Json.stringify(blob)
+    Http("http://foo.com/add").postForm.param("data", other).asString
   }
 
   def percentFilled(): Double = {
