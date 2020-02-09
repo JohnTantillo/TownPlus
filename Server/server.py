@@ -1,8 +1,7 @@
 import bottle
 import requests
+from pymongo import MongoClient
 
-scalaServer = "/parkingSpot"
-curDist = list()
 
 @bottle.route("/")
 def home():
@@ -11,8 +10,12 @@ def home():
 @bottle.post("/sensorData")
 def sensor():
     print("adding new server data")
+    client = pymongo.MongoClient("mongodb+srv://johnduna:<password>@distances-mh9hl.mongodb.net/test?retryWrites=true&w=majority")
+    db = client.Distances.dist
+    posts = db.posts
     dist = bottle.request.forms.get('dist')
-    curDist = curDist.append(float(dist))
+    posts.insert_one({"dist":float(dist)})
+
 
 @bottle.route("/scala")
 def toScala():
