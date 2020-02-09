@@ -1,8 +1,12 @@
 import serial
+import requests
+
+nonMagicNumber = 100
+count = 0
 
 ser = serial.Serial(
-ser.baudrate = 9600,
-ser.port = '/dev/ttyACM0'
+baudrate = 9600,
+port = '/dev/ttyACM0'
 )
 
 
@@ -10,5 +14,15 @@ running = True
 while running:
     data = ser.readline()
     data = data.rstrip()
+    if data != "Out of range":
+        if float(data) <= nonMagicNumber:
+            count = count + 1
+            if count >= 15:
+                count = 0
+                r = requests.post("/sensorData", data = {'dist':float(dist)})
+        else:
+            count = 0
+
     stringData = str(data)
     print(stringData)
+#TODO: only send when there is a consistent change
