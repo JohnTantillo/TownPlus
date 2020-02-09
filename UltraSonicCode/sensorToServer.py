@@ -16,6 +16,7 @@ while running:
     data = data[2:]
     data = data.replace("\\r\\n", "")
     data = data.replace("\'", "")
+    print(data, flush=True)
     if data != "Out of range":
         if float(data) <= nonMagicNumber:
             count = count + 1
@@ -25,5 +26,4 @@ while running:
                 r = requests.post("https://townpl.us/sensorData", data = {'dist':float(data)})
         else:
             count = 0
-    print(data, flush=True)
 #TODO: only send when there is a consistent change
