@@ -11,7 +11,7 @@ class ParkingLot( var rows: Int, var columns: Int ) {
   var filledSpots: Int = 0
   for( i <- 0 until rows; j <- 0 until columns ) {
     lot(i)(j) = " "
-    spots.addOne( new ParkingSpot((i,j)) )
+    spots.addOne( new ParkingSpot( (i,j) ) )
   }
 
   def update(): Unit = {
@@ -25,9 +25,9 @@ class ParkingLot( var rows: Int, var columns: Int ) {
       else
         lot(spot.ID._1)(spot.ID._2) = " "
     }
-    val blob: JsValue = Json.toJson(lot)
-    val other: String = Json.stringify(blob)
-    Http("http://foo.com/add").postForm.param("data", other).asString
+//    val blob: JsValue = Json.toJson(lot)
+//    val other: String = Json.stringify(blob)
+//    Http("http://foo.com/add").postForm.param("data", other).asString
   }
 
   def percentFilled(): Double = {
