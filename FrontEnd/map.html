@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Map</title>
+  <link rel="stylesheet" type="text/css" href="map.css">
   <meta name="viewport" content="initial-scale=1.0">
   <meta charset="utf-8">
   <style>
@@ -93,8 +94,9 @@
   <h1 style="font-size:200%;text-align:center;">What are you looking to do today?</h1>
   <p>Choose from this categories: book_store, amusement_park, aquarium, art_gallery, bakery, bar, bowling_alley, cafe, camp_ground, casino, gym, library, meal_takeaway, movie_theater, museum, night_club, park, parking, pet_store, restaurant, shopping_mall, spa, tourist_attraction, zoo</p>
 
-  <label for="cat">Category:</label><input type="text" id="cat" name="cat"><br><br>
-  <input type="submit" value="Submit" onclick="initMap(document.getElementById('cat').value)">
+  <label  for="cat" style="font-family: 'Comic Sans MS';">Category:</label><input type="text" style="font-family: 'Comic Sans MS';" id="cat" name="cat"><br><br>
+  <input type="submit" style="position:absolute;left:6%;top:90%;font-family: 'Comic Sans MS';" value="Submit" onclick="initMap(document.getElementById('cat').value)">
+  <button style="position:absolute;top:90%;left:90%;font-family: 'Comic Sans MS';" onclick="location.href = 'home.html';">Home</button>
 
 </body>
 </html>
