@@ -10,11 +10,13 @@ def home():
 
 @bottle.post("/sensorData")
 def sensor():
+    print("adding new server data")
     dist = request.forms.get('dist')
     curDist = curDist.append(float(dist))
 
 @bottle.route("/scala")
 def toScala():
+    print("scala pulled")
     return curDist[len(curDist)]
 
 bottle.run(host="0.0.0.0",port="8080",debug=True)
