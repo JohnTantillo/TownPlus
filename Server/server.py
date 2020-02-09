@@ -36,6 +36,8 @@ def toScala():
         lot.append([1])
     else:
         lot.append([0])
+    for i in lot:
+        print(i)
         #return json.dumps(True)
     #else:
         #return json.dumps(False)
@@ -45,5 +47,6 @@ def toScala():
 def sendLot():
     print("sending")
     return json.dumps(lot)
+
 
 bottle.run(host="0.0.0.0",port="80",debug=True)
