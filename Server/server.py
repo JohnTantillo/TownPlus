@@ -33,7 +33,7 @@ def toScala():
     client = pymongo.MongoClient("mongodb+srv://johnduna:100741Vcs@distances-mh9hl.mongodb.net/test?retryWrites=true&w=majority")
     db = client.Distances
     posts = db.dist
-    data = posts.find().sort({_id:-1})
+    data = posts.find().sort({"_id":-1})
     if float(data[0]) <= 100:
         lot.append([1])
     else:
