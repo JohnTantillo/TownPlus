@@ -12,7 +12,7 @@ port = '/dev/ttyACM0'
 
 running = True
 while running:
-    data = ser.readline()
+    data = str(ser.readline())
     data = data.rstrip()
     if data != "Out of range":
         if float(data) <= nonMagicNumber:
