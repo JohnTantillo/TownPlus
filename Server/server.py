@@ -19,7 +19,7 @@ def sensor():
     db = client.Distances
     posts = db.dist
     dist = bottle.request.forms.get('dist')
-    posts.insert_one({"dist":float(dist))
+    posts.insert_one({"dist":float(dist)})
 
 
 @bottle.route("/scala")
@@ -29,6 +29,9 @@ def toScala():
     db = client.Distances
     posts = db.dist
     data = posts.find().sort({_id:-1})
-    return data[0]
+    if float(data[0]) <= 100:
+        return True
+    else:
+        return False
 
 bottle.run(host="0.0.0.0",port="8080",debug=True)
