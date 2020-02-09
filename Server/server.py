@@ -32,8 +32,10 @@ def toScala():
     posts = db.dist
     data = posts.find().sort("dist", -1)
     if float(data[0]) <= 100:
+        print("YEESSSSS")
         return json.dumps(True)
     else:
+        print("NOOOOOOOO")
         return json.dumps(False)
 
 
