@@ -76,7 +76,7 @@ def sensor():
 
 @bottle.route("/scala")
 def toScala():
-    #client = pymongo.MongoClient("mongodb+srv://dbUser:100741Vcs@cluster0-cxegb.mongodb.net/test?retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb+srv://dbUser:100741Vcs@cluster0-cxegb.mongodb.net/test?retryWrites=true&w=majority")
     db = client.Distances
     posts = db.dist
     data = posts.find().sort({"time":1}).limit(1)
