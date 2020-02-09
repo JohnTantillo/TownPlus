@@ -30,7 +30,8 @@ def toScala():
     client = pymongo.MongoClient("mongodb+srv://johnduna:100741Vcs@distances-mh9hl.mongodb.net/test?retryWrites=true&w=majority")
     db = client.Distances
     posts = db.dist
-    data = posts.next()
+    data = posts.dataSize()
+    return json.dumps(data)
     if float(data.dist) <= 100:
         return json.dumps(True)
     else:
