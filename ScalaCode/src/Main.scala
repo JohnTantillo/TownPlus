@@ -4,7 +4,6 @@ object Main {
     while( true ) {
       Thread.sleep(2000)
       lot.update()
-      //println("sent!")
     }
   }
 }
