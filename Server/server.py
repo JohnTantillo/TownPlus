@@ -4,6 +4,7 @@ import pymongo
 import datetime
 from datetime import date
 from pymongo import MongoClient
+import json
 
 
 @bottle.route("/")
@@ -30,8 +31,8 @@ def toScala():
     posts = db.dist
     data = posts.find().sort({_id:-1})
     if float(data[0]) <= 100:
-        return True
+        return json.dumps(True)
     else:
-        return False
+        return json.dumps(False)
 
 bottle.run(host="0.0.0.0",port="80",debug=True)
