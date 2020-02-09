@@ -80,7 +80,7 @@ def toScala():
     db = client.Distances
     posts = db.dist
     data = posts.find().sort([("time",1)]).limit(1)
-    print(data)
+    print(data[0]["dist"])
     if float(data[0]["dist"]) != -1:
         return json.dumps(True)
     else:
