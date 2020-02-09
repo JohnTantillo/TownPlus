@@ -1,14 +1,13 @@
-
-.title {
- font-family: "Comic Sans MS", "Comic Sans", cursive;
+h1 {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
-.homebuttons button {
+button {
  background-color: #71da71;
  border: none;
  border-radius: 8px;
  color: white;
- padding: 16px 32px;
+ padding: 10px 18px;
  text-align: center;
  font-family: "Comic Sans MS", "Comic Sans", cursive;
  font-size: 16px;
@@ -18,7 +17,4 @@
  display: inline-block;
  text-decoration: none;
  cursor: pointer;
- /* position: absolute;
- left: 50%;
- transform: translate(-50%, -50%); */
 }
