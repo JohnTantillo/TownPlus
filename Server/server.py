@@ -14,7 +14,7 @@ def home():
 @bottle.post("/sensorData")
 def sensor():
     print("adding new server data")
-    client = pymongo.MongoClient("mongodb+srv://johnduna:100741Vcs@distances-mh9hl.mongodb.net/test?retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb+srv://dbUser:100741Vcs@cluster0-cxegb.mongodb.net/test?retryWrites=true&w=majority")
     db = client.Distances
     posts = db.dist
     dist = bottle.request.forms.get('dist')
@@ -25,7 +25,7 @@ def sensor():
 @bottle.route("/scala")
 def toScala():
     print("scala pulled")
-    client = pymongo.MongoClient("mongodb+srv://johnduna:100741Vcs@distances-mh9hl.mongodb.net/test?retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb+srv://dbUser:100741Vcs@cluster0-cxegb.mongodb.net/test?retryWrites=true&w=majority")
     db = client.Distances
     posts = db.dist
     data = posts.find().sort("dist",-1)
