@@ -18,3 +18,9 @@ button {
  text-decoration: none;
  cursor: pointer;
 }
+
+table, th, td {
+  margin-left: 10%;
+  margin-right: 20%;
+  border: 1px solid black;
+}
