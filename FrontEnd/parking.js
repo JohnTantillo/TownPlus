@@ -21,7 +21,7 @@ function myFunction(array) {
     var row = table.insertRow(i);
     for (var j = 0; j <array[i].length; j++){
       var cell1 = row.insertCell(j);
-      if (array[i][j] == 1){
+      if (array[i][j] == "1"){
         console.log("run");
          cell1.innerHTML = '<img src="car.jpg" width="120" height="234">';
       }
