@@ -21,10 +21,9 @@ while running:
     if data != "Out of range":
         if float(data) <= nonMagicNumber:
             count = count + 1
-            if count >= 15:
+            if count >= 200:
                 count = 0
                 print("sending to server")
-                gcontext = ssl.SSLContext()
                 r = requests.post("http://165.227.223.64/sensorData", data = {'dist':float(data)})
         else:
             count = 0

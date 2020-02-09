@@ -3,6 +3,7 @@ import requests
 import pymongo
 from pymongo import MongoClient
 import json
+import sqlite3
 
 
 @bottle.route("/")
@@ -18,6 +19,7 @@ def sensor():
     posts = db.dist
     dist = bottle.request.forms.get('dist')
     posts.insert_one({"dist":float(dist)})
+    client.close()
 
 
 @bottle.route("/scala")
@@ -32,6 +34,8 @@ def toScala():
         return json.dumps(True)
     else:
         return json.dumps(False)
+
+    client.close()
 
 
 bottle.run(host="0.0.0.0",port="80",debug=True)
