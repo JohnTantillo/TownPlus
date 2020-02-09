@@ -54,6 +54,10 @@ def parkingcss():
 def parkingcss():
     return bottle.static_file("parking.html", root="/root/projects/TownPlus/FrontEnd")
 
+@bottle.route("/car.jpg")
+def parkingcss():
+    return bottle.static_file("car.jpg", root="/root/projects/TownPlus/FrontEnd")
+
 #################################################################################################################
 @bottle.route("/parking.css")
 def parkingcss():
@@ -76,7 +80,7 @@ def toScala():
     posts = db.dist
     data = posts.find_one()
     print(data)
-    if float(data["dist"]) <= 100:
+    if float(data["dist"]) != -1:
         return json.dumps(True)
     else:
         return json.dumps(False)

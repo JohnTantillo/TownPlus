@@ -19,12 +19,11 @@ while running:
     data = data.replace("\'", "")
     print(data, flush=True)
     if data != "Out of range":
-        if float(data) <= nonMagicNumber:
-            count = count + 1
-            if count >= 200:
-                count = 0
-                print("sending to server")
-                r = requests.post("http://165.227.223.64/sensorData", data = {'dist':float(data)})
-        else:
+        count = count + 1
+        if count >= 200:
             count = 0
+            print("sending to server")
+            r = requests.post("http://165.227.223.64/sensorData", data = {'dist':float(data)})
+    else:
+        r = requests.post("http://165.227.223.64/sensorData", data = {'dist':-1})
 #TODO: only send when there is a consistent change
