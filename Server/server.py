@@ -8,7 +8,7 @@ import sqlite3
 
 @bottle.route("/")
 def home():
-    return bottle.static_file("home.html", root="\\root\\projects\\TownPlus\\FrontEnd")
+    return bottle.static_file("home.html", root="/root/projects/TownPlus/FrontEnd")
 
 @bottle.route("/parking.js")
 def parkingjs():
