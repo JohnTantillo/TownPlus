@@ -3,6 +3,7 @@ object Main {
     val lot = new ParkingLot(1, 1)
     for(i <- 0 until 5) {
       lot.update()
+      println(lot.toString())
       Thread.sleep(2000)
     }
   }
