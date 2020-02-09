@@ -22,7 +22,7 @@ while running:
             if count >= 15:
                 count = 0
                 print("sending to server")
-                r = requests.post("/sensorData", data = {'dist':float(dist)})
+                r = requests.post("/sensorData", data = {'dist':float(data)})
         else:
             count = 0
     print(data, flush=True)
