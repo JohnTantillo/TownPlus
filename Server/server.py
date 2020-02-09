@@ -105,8 +105,8 @@ def toFront():
     db = client.ForFrontend
     posts = db.maps
     data = posts.find().sort([("time",-1)]).limit(1)
-    print(data[0][0])
-    return json.dumps(data[0][0])
+    print(data[0]["maps"])
+    return json.dumps(data[0]["maps"])
 
     client.close()
 
