@@ -23,7 +23,7 @@ while running:
             if count >= 15:
                 count = 0
                 print("sending to server")
-                r = requests.post("http://66.96.162.141/sensorData", data = {'dist':float(data)})
+                r = requests.post("https://townpl.us/sensorData", data = {'dist':float(data)})
         else:
             count = 0
 #TODO: only send when there is a consistent change
