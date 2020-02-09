@@ -37,5 +37,15 @@ def toScala():
 
     client.close()
 
+@bottle.post("/fuckingPlease")
+def fromScala():
+    lotJson = bottle.request.forms.get('lot')
+    lot = json.loads(lotJson)
+    client = pymongo.MongoClient("mongodb+srv://dbUser:100741Vcs@cluster0-cxegb.mongodb.net/test?retryWrites=true&w=majority")
+    db = client.ForFrontend
+    posts = db.maps
+    posts.insert_one({"maps":lot})
+    client.close()
+
 
 bottle.run(host="0.0.0.0",port="80",debug=True)
