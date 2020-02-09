@@ -1,8 +1,8 @@
 import serial
 
 ser = serial.Serial(
-ser.baudrate = 9600,
-ser.port = '/dev/ttyACM0'
+baudrate = 9600,
+port = '/dev/ttyACM0'
 )
 
 
