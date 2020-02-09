@@ -23,4 +23,5 @@ while running:
                 r = requests.post("/sensorData", data = {'dist':float(dist)})
         else:
             count = 0
+    print(data)
 #TODO: only send when there is a consistent change
