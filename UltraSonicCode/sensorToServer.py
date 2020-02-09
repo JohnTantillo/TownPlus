@@ -21,7 +21,8 @@ while running:
     #         if count >= 15:
     #             count = 0
     #             print("sending to server")
+    #             r = requests.post("/sensorData", data = {'dist':float(dist)})
     #     else:
     #         count = 0
-    print(data)
+    print(data, flush=True)
 #TODO: only send when there is a consistent change
