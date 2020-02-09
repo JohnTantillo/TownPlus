@@ -10,6 +10,10 @@ import sqlite3
 def home():
     return bottle.static_file("home.html", root="/root/projects/TownPlus/FrontEnd")
 
+@bottle.route("/home.html")
+def home():
+    return bottle.static_file("home.html", root="/root/projects/TownPlus/FrontEnd")
+
 @bottle.route("/parking.js")
 def parkingjs():
     return bottle.static_file("parking.js", root="/root/projects/TownPlus/FrontEnd")
@@ -82,7 +86,7 @@ def toScala():
 @bottle.post("/fuckingPlease")
 def fromScala():
     print("from scala")
-    lotJson = bottle.request.forms.get('lot')
+    lotJson = bottle.request.forms.get('data')
     lot = json.loads(lotJson)
     client = pymongo.MongoClient("mongodb+srv://dbUser:100741Vcs@cluster0-cxegb.mongodb.net/test?retryWrites=true&w=majority")
     db = client.ForFrontend
