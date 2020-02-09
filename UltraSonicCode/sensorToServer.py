@@ -25,7 +25,7 @@ while running:
                 count = 0
                 print("sending to server")
                 gcontext = ssl.SSLContext()
-                r = requests.post("http://18.221.247.110/sensorData", data = {'dist':float(data)})
+                r = requests.post("http://165.227.223.64/sensorData", data = {'dist':float(data)})
         else:
             count = 0
 #TODO: only send when there is a consistent change
