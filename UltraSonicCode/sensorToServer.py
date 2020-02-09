@@ -14,7 +14,8 @@ running = True
 while running:
     data = str(ser.readline())
     data = data[2:]
-    data = data[:-7]
+    if data.endswith("\\r\\n"):
+        data = data[:-4]
     if data != "Out of range":
         if float(data) <= nonMagicNumber:
             count = count + 1
