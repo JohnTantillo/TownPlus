@@ -1,6 +1,3 @@
-//import org.mongodb.scala._
-import scalaj.http._
-
 class ParkingSpot( var ID: (Int, Int) ) {
 
   var filled = false
@@ -11,6 +8,7 @@ class ParkingSpot( var ID: (Int, Int) ) {
       filled = true
     else
       filled = false
-  }
 
+    println(filled)
+  }
 }
