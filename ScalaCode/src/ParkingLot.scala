@@ -28,7 +28,7 @@ class ParkingLot( var rows: Int, var columns: Int ) {
     val lotMap = Map("lot" -> lot)
     val blob: JsValue = Json.toJson(lotMap)
     val jstring: String = Json.stringify(blob)
-    Http("http://165.227.223.64/fuckingPlease").postForm.param("data", jstring).asString
+    Http("http://178.128.238.139/fuckingPlease").postForm.param("data", jstring).asString
   }
 
   def percentFilled(): Double = {
