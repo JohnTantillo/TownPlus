@@ -1,5 +1,6 @@
 import serial
 import requests
+import ssl
 
 nonMagicNumber = 100
 count = 0
@@ -23,7 +24,8 @@ while running:
             if count >= 15:
                 count = 0
                 print("sending to server")
-                r = requests.post("http://129.21.248.239/sensorData", data = {'dist':float(data)})
+                gcontext = ssl.SSLContext()
+                r = requests.post("http://129.21.248.239/sensorData", data = {'dist':float(data)}, context=gcontext)
         else:
             count = 0
 #TODO: only send when there is a consistent change
