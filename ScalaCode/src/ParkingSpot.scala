@@ -10,6 +10,5 @@ class ParkingSpot( var ID: (Int, Int) ) {
     else
       filled = false
 
-    //println(filled)
   }
 }
