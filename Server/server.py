@@ -96,7 +96,18 @@ def fromScala():
     client = pymongo.MongoClient("mongodb+srv://dbUser:100741Vcs@cluster0-cxegb.mongodb.net/test?retryWrites=true&w=majority")
     db = client.ForFrontend
     posts = db.maps
-    posts.insert_one({"maps":lot})
+    posts.insert_one({"maps":lot, "time":time.time()})
+    client.close()
+
+@bottle.route("/front")
+def toFront():
+    client = pymongo.MongoClient("mongodb+srv://dbUser:100741Vcs@cluster0-cxegb.mongodb.net/test?retryWrites=true&w=majority")
+    db = client.ForFrontend
+    posts = db.maps
+    data = posts.find().sort([("time",-1)]).limit(1)
+    print(data[0][0])
+    return json.dumps(print(data[0][0]))
+
     client.close()
 
 

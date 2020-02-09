@@ -1,3 +1,19 @@
+
+function onLoad() {
+  ajaxGetRequest("/front", myFunction)
+}
+
+function ajaxGetRequest(path, callback) {
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+          if (this.readyState===4 && this.status ===200) {
+              callback(this.response);
+            }
+    }
+    request.open("GET", path);
+    request.send();
+}
+
 function myFunction(array) {
   var table = document.getElementById("myTable");
   for (var i = 0; i < array.length; i++){
