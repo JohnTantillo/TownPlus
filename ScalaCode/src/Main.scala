@@ -1,11 +1,8 @@
 object Main {
   def main(args: Array[String]): Unit = {
     val lot = new ParkingLot(1, 1)
-    for(i <- 0 until 5) {
+    while( true )
       lot.update()
-      println(lot.toString())
-      Thread.sleep(2000)
-    }
   }
 }
 //    for( row <- lot.lot ){
@@ -48,3 +45,10 @@ object Main {
 //26 rows
 
 //somethingicantype
+//lot = []
+//lot.append([1])
+//else:
+//lot.append([0])
+//for i in lot:
+//  print(i)
+//return json.dumps(lot)

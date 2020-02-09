@@ -19,15 +19,16 @@ class ParkingLot( var rows: Int, var columns: Int ) {
     for(spot <- spots){
       spot.checkFilled()
       if(spot.filled){
-        lot(spot.ID._1)(spot.ID._2) = "*"
+        lot(spot.ID._1)(spot.ID._2) = "1"
         filledSpots += 1
       }
       else
-        lot(spot.ID._1)(spot.ID._2) = " "
+        lot(spot.ID._1)(spot.ID._2) = "0"
     }
-//    val blob: JsValue = Json.toJson(lot)
-//    val other: String = Json.stringify(blob)
-//    Http("http://foo.com/add").postForm.param("data", other).asString
+    val lotMap = Map("lot" -> lot)
+    val blob: JsValue = Json.toJson(lotMap)
+    val other: String = Json.stringify(blob)
+    Http("http://165.227.223.64/fuckingPlease").postForm.param("data", other).asString
   }
 
   def percentFilled(): Double = {

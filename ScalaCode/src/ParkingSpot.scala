@@ -1,15 +1,13 @@
+//import org.mongodb.scala._
+import scalaj.http._
+
 class ParkingSpot( var ID: (Int, Int) ) {
 
   var filled = false
 
-  def get(url: String) = {
-    scala.io.Source.fromURL(url).mkString
-  }
-
   def checkFilled(): Unit = {
-    val parked = get("/scala")
-    println(parked)
-    if( parked == "true" )
+    val response = scala.io.Source.fromURL("http://165.227.223.64/scala").mkString
+    if( response == "true" )
       filled = true
     else
       filled = false
