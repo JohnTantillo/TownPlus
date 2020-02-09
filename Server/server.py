@@ -75,10 +75,10 @@ def sensor():
 
 @bottle.route("/scala")
 def toScala():
-    client = pymongo.MongoClient("mongodb+srv://dbUser:100741Vcs@cluster0-cxegb.mongodb.net/test?retryWrites=true&w=majority")
+    #client = pymongo.MongoClient("mongodb+srv://dbUser:100741Vcs@cluster0-cxegb.mongodb.net/test?retryWrites=true&w=majority")
     db = client.Distances
     posts = db.dist
-    data = posts.find_one()
+    data = posts.find().sort({"_id":1})
     print(data)
     if float(data["dist"]) != -1:
         return json.dumps(True)
