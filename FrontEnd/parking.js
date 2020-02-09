@@ -15,6 +15,7 @@ function ajaxGetRequest(path, callback) {
 }
 
 function myFunction(array) {
+  console.log(array);
   var table = document.getElementById("myTable");
   for (var i = 0; i < array.length; i++){
     console.log(array.length);
