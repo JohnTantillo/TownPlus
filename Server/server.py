@@ -7,9 +7,6 @@ from pymongo import MongoClient
 import json
 
 
-lot = []
-
-
 @bottle.route("/")
 def home():
     return bottle.static_file("htmlFiles\\home.html", root="C:\\Users\\J_Dun\\Documents\\GitHub\\TownPlus")
@@ -33,17 +30,11 @@ def toScala():
     client = pymongo.MongoClient("mongodb+srv://johnduna:100741Vcs@distances-mh9hl.mongodb.net/test?retryWrites=true&w=majority")
     db = client.Distances
     posts = db.dist
-    data = posts.find().sort({"_id":-1})
+    data = posts.find().sort({"dist":-1})
     if float(data[0]) <= 100:
-        lot.append([1])
+        return json.dumps(True)
     else:
-        lot.append([0])
-    for i in lot:
-        print(i)
-    return json.dumps(lot)
-        #return json.dumps(True)
-    #else:
-        #return json.dumps(False)
+        return json.dumps(False)
 
 
 bottle.run(host="0.0.0.0",port="80",debug=True)
