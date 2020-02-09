@@ -1,8 +1,6 @@
 import bottle
 import requests
 import pymongo
-import datetime
-from datetime import date
 from pymongo import MongoClient
 import json
 
@@ -15,8 +13,6 @@ def home():
 @bottle.post("/sensorData")
 def sensor():
     print("adding new server data")
-    now = datetime.now()
-    dt_string = now.strftime("%H:%M:%S")
     client = pymongo.MongoClient("mongodb+srv://johnduna:100741Vcs@distances-mh9hl.mongodb.net/test?retryWrites=true&w=majority")
     db = client.Distances
     posts = db.dist
