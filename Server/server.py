@@ -2,6 +2,7 @@ import bottle
 import requests
 
 scalaServer = "/parkingSpot"
+curDist = list()
 
 @bottle.route("/")
 def home():
@@ -10,6 +11,10 @@ def home():
 @bottle.post("/sensorData")
 def sensor():
     dist = request.forms.get('dist')
-    r = requests.post(scalaServer, data = {'distance':float(dist)})
+    curDist = curDist.append(float(dist))
+
+@bottle.route("/scala")
+def toScala():
+    return curDist[len(curDist)]
 
 bottle.run(host="0.0.0.0",port="8080",debug=True)
