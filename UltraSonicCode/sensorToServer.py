@@ -13,16 +13,16 @@ port = '/dev/ttyACM0'
 running = True
 while running:
     data = str(ser.readline())
-    #data = data[2:]
-    # data = data.strip("\n\r")
-    # if data != "Out of range":
-    #     if float(data) <= nonMagicNumber:
-    #         count = count + 1
-    #         if count >= 15:
-    #             count = 0
-    #             print("sending to server")
-    #             r = requests.post("/sensorData", data = {'dist':float(dist)})
-    #     else:
-    #         count = 0
+    data = data[2:]
+    data = data.strip("\n\r")
+    if data != "Out of range":
+        if float(data) <= nonMagicNumber:
+            count = count + 1
+            if count >= 15:
+                count = 0
+                print("sending to server")
+                r = requests.post("/sensorData", data = {'dist':float(dist)})
+        else:
+            count = 0
     print(data, flush=True)
 #TODO: only send when there is a consistent change
