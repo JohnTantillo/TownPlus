@@ -6,7 +6,9 @@ from datetime import date
 from pymongo import MongoClient
 import json
 
+
 lot = []
+
 
 @bottle.route("/")
 def home():
@@ -38,15 +40,10 @@ def toScala():
         lot.append([0])
     for i in lot:
         print(i)
+    return json.dumps(lot)
         #return json.dumps(True)
     #else:
         #return json.dumps(False)
-
-
-@bottle.route("/parkingLot")
-def sendLot():
-    print("sending")
-    return json.dumps(lot)
 
 
 bottle.run(host="0.0.0.0",port="80",debug=True)
