@@ -73,7 +73,7 @@ void loop() {
     Serial.println("Out of range");
   } else {
     Serial.print(cm);
-    Serial.print(" cm");
+    Serial.print(" cm\n");
   }
 
   // Wait at least 60ms before next measurement
