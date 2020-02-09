@@ -22,14 +22,14 @@ while running:
     if data != "Out of range":
         count2 = 0
         count = count + 1
-        if count >= 200:
+        if count >= 33:
             count = 0
             print("sending to server")
             r = requests.post("http://165.227.223.64/sensorData", data = {'dist':float(data)})
     else:
         count = 0
         count2 = count2 + 1
-        if count2 >= 200:
+        if count2 >= 33:
             count2 = 0
             r = requests.post("http://165.227.223.64/sensorData", data = {'dist':-1})
 #TODO: only send when there is a consistent change
