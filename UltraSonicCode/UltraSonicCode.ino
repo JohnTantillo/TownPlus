@@ -77,5 +77,5 @@ void loop() {
   }
 
   // Wait at least 60ms before next measurement
-  delay(60);
+  delay(200);
 }
