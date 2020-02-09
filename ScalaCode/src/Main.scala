@@ -46,3 +46,5 @@ object Main {
 
 //18 columns
 //26 rows
+
+//somethingicantype

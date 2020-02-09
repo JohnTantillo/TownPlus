@@ -7,7 +7,8 @@ class ParkingSpot( var ID: (Int, Int) ) {
   }
 
   def checkFilled(): Unit = {
-    val parked = get("/scala")
+    //val parked = get("/scala")
+    val parked = false
     println(parked)
     if( parked == "true" )
       filled = true
