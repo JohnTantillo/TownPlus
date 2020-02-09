@@ -34,4 +34,4 @@ def toScala():
     else:
         return False
 
-bottle.run(host="0.0.0.0",port="8080",debug=True)
+bottle.run(host="0.0.0.0",port="80",debug=True)
