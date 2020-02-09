@@ -4,11 +4,12 @@ class ParkingSpot( var ID: (Int, Int) ) {
 
   def checkFilled(): Unit = {
     val response = scala.io.Source.fromURL("http://165.227.223.64/scala").mkString
+    println(response)
     if( response == "true" )
       filled = true
     else
       filled = false
 
-    println(filled)
+    //println(filled)
   }
 }
