@@ -1,37 +1,47 @@
+import scala.collection.mutable.ArrayBuffer
+
 class ParkingLot( var rows: Int, var columns: Int ) {
 
-  val lot: Array[Array[ParkingSpot]] = Array.ofDim[ParkingSpot](rows, columns)
-  val spots: Int = rows * columns
+  val lot: Array[Array[String]] = Array.ofDim[String](rows, columns)
+  val spots: ArrayBuffer[ParkingSpot] = new ArrayBuffer[ParkingSpot]()
+  val total: Int = rows * columns
   var filledSpots: Int = 0
-  var counter = 0
-  for( i <- 0 until rows; j <- 0 until columns ){
-    lot(i)(j) = new ParkingSpot(-1, counter.toString)
-    counter += 1
+  for( i <- 0 until rows; j <- 0 until columns ) {
+    lot(i)(j) = " "
+    spots.addOne( new ParkingSpot((i,j)) )
   }
 
   def update(): Unit = {
-    for( row <- lot; spot <- row ){
-      if( spot.filled ) {
-        spot.checkFilled()
-        if(!spot.filled)
-          filledSpots -= 1
+    filledSpots = 0
+    for(spot <- spots){
+      if(spot.filled){
+        lot(spot.ID._1)(spot.ID._2) = "*"
+        filledSpots += 1
       }
-      else if( !spot.filled ){
-        if( spot.distance > 100 )
-          spot.timer = 0
-        else if( spot.timer == 0 )
-          spot.timer = System.nanoTime()
-        else {
-          spot.checkFilled()
-          if(spot.filled)
-            filledSpots += 1
-        }
-      }
+      else
+        lot(spot.ID._1)(spot.ID._2) = " "
     }
+
   }
 
   def percentFilled(): Double = {
-    ( filledSpots.asInstanceOf[Double] / spots.asInstanceOf[Double] ) * 100
+    ( filledSpots.asInstanceOf[Double] / total.asInstanceOf[Double] ) * 100
+  }
+
+  def filledString(): String = {
+    filledSpots + " out of " + total + " spots are currently filled."
+  }
+
+  override def toString(): String = {
+    var str: String = ""
+    for( row <- lot ){
+      str += "["
+      for( spot <- row ){
+        str += " " + spot + ","
+      }
+      str += "]\n"
+    }
+    str
   }
 
 }
